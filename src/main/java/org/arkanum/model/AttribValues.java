@@ -9,6 +9,6 @@ public class AttribValues {
 	public static final String DEX = "dexterity";
 	public static final String CON = "constitution";
 	public static final String WIL = "willpower";
-	public static final String COG = "willpower";
+	public static final String COG = "cognition";
 
 }
