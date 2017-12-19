@@ -11,5 +11,6 @@ public class Profession {
 	
 	@Getter @Setter private String profession;
 	@Getter @Setter private Attributes minValues;
+	@Getter @Setter private FighterType fighterType;
 
 }

@@ -44,6 +44,64 @@ public class Attributes {
 		return ret;
 	}
 	
+	/**
+	 * 
+	 * @return value has to be multiplied with level
+	 */
+	public Integer getAddHitBonus() {
+		Integer ret = 0;
+		Integer value = getAttributeValue(AttribValues.CON);
+		if(value == 15) ret = 1;
+		if(value > 15) ret = value - 15;
+		return ret;	
+	}
+	
+	public Integer getAttackBonus() {
+		Integer ret = 0;
+		Integer value = getAttributeValue(AttribValues.DEX);
+		switch (value) {
+		
+		case 15:
+			ret = 1;
+			break;
+		case 16:
+			ret = 1;
+			break;
+		case 17:
+			ret = 2;
+			break;
+		case 18:
+			ret = 3;
+			break;
+		case 19:
+			ret = 4;
+			break;
+		case 20:
+			ret = 4;
+			break;
+		case 21:
+			ret = 5;
+			break;
+		case 22:
+			ret = 5;
+			break;
+		case 23:
+			ret = 6;
+			break;
+		case 24:
+			ret = 6;
+			break;
+		case 25:
+			ret = 7;
+			break;
+		default:
+		    if(value > 25) ret = 7;
+		    else ret = 0;
+		}
+		
+		return ret;
+	}
+	
 	private void initialize() {
 		Class<?> c  = AttribValues.class;
 		for(Field f : c.getDeclaredFields()) {
