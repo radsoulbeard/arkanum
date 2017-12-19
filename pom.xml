@@ -8,7 +8,6 @@
 	<name>character</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
