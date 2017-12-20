@@ -2,8 +2,15 @@ package org.arkanum.model;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Field;
+
 import org.junit.Test;
 
+import com.google.gson.Gson;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class AttributesTest {
 
 	@Test
@@ -34,6 +41,25 @@ public class AttributesTest {
 		assertTrue(12 == attrib.getAddDamage());
 		attrib.setAttributeValue(AttribValues.STR, 10);
 		assertTrue(0 == attrib.getAddDamage());
+	}
+	
+	@Test
+	public void testObjectToJson() {
+		Attributes attrib = new Attributes();
+		Class<?> c  = AttribValues.class;
+		for(Field f : c.getDeclaredFields()) {
+			try {
+				attrib.setAttributeValue((String) f.get(f), 10);
+			} catch (IllegalArgumentException e) {
+				log.error(e.getMessage());
+			} catch (IllegalAccessException e) {
+				log.error(e.getMessage());
+			}
+		}
+		Gson gson = new Gson();
+		String json = gson.toJson(attrib);
+		assertTrue(json.contains("values"));
+		assertTrue(json.contains("\"willpower\":10"));
 	}
 
 }
