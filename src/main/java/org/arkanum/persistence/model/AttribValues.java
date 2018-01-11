@@ -1,4 +1,4 @@
-package org.arkanum.model;
+package org.arkanum.persistence.model;
 
 public class AttribValues {
 	

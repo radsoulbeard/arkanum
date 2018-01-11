@@ -1,4 +1,4 @@
-package org.arkanum.model;
+package org.arkanum.persistence.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,8 +11,7 @@ public class Character {
 	
 	
 	@Getter @Setter private String name;
-	@Getter private Integer level;
-	@Getter private Integer maxHits;
+	@Getter @Setter private Integer level;
 	@Getter @Setter private Integer experience;
 	@Getter private Integer fame;          
 	@Getter @Setter private Integer age;
@@ -29,10 +28,7 @@ public class Character {
 		this.fame = f;
 	}
 	
-	public void setLevel(Integer l) {
-		level = l;
-		calculateMaxHits();
-	}
+	
 	
 	public Integer getAttribute(String attribute) {
 		return attributes.getAttributeValue(attribute);
@@ -40,12 +36,11 @@ public class Character {
 	
 	public void setAttribute(String attribute, Integer value) {
 		attributes.setAttributeValue(attribute, value);
-		calculateMaxHits();
 		
 	}
 	
 	
-	private void calculateMaxHits() {
+	public Integer getMaxHits() {
 		Integer ret = 0;
 		Integer multi = level < 13 ? level : 12;
 		ret = attributes.getAttributeValue(AttribValues.CON);
@@ -63,7 +58,7 @@ public class Character {
 		if(level >= 13) {
 			ret = ret + 1;
 		}
-		maxHits = ret;
+		return ret;
 	}
 	
 

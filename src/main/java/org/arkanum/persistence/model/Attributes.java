@@ -1,4 +1,4 @@
-package org.arkanum.model;
+package org.arkanum.persistence.model;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

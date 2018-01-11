@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Field;
 
+import org.arkanum.persistence.model.AttribValues;
+import org.arkanum.persistence.model.Attributes;
 import org.junit.Test;
 
 import com.google.gson.Gson;
