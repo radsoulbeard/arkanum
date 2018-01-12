@@ -19,10 +19,11 @@ public class GameCharacter {
 	
 	@Getter @Setter private Race race;
 	@Getter @Setter private Profession profession;
-	@Getter @Setter private Attributes attributes; 
+	@Getter @Setter private Attributes attributes;
+	@Getter @Setter private Skills skills;
 	
 	
-	private GameCharacter(@NonNull Attributes a, @NonNull Race r, @NonNull Profession p) 
+	private GameCharacter(@NonNull Attributes a, Skills s, @NonNull Race r, @NonNull Profession p) 
 	{
 		attributes = a;
 		race = r;
@@ -30,8 +31,8 @@ public class GameCharacter {
 		
 	}
 	
-	public static GameCharacter create(@NonNull Attributes a, @NonNull Race r, @NonNull Profession p){
-	   return new GameCharacter(a,r,p);	
+	public static GameCharacter create(@NonNull Attributes a, @NonNull Skills s, @NonNull Race r, @NonNull Profession p){
+	   return new GameCharacter(a,s,r,p);	
 	}
 	
 	public void setFame(Integer f) {

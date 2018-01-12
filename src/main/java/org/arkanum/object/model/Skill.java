@@ -1,7 +1,5 @@
 package org.arkanum.object.model;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
 
