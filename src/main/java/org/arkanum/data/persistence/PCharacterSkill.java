@@ -9,7 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PCharacterSkill {
 	 
-	
 	@Getter @Setter private String name;
 	@Getter @Setter private Integer value;
 	
