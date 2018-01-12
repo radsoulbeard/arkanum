@@ -1,4 +1,4 @@
-package org.arkanum.persistence.model;
+package org.arkanum.object.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

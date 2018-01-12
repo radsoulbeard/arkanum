@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Field;
 
-import org.arkanum.persistence.model.AttribValues;
-import org.arkanum.persistence.model.Attributes;
+import org.arkanum.object.model.AttribValues;
+import org.arkanum.object.model.Attributes;
 import org.junit.Test;
 
 import com.google.gson.Gson;
@@ -17,7 +17,7 @@ public class AttributesTest {
 
 	@Test
 	public void testGetBonus() {
-		Attributes attrib = new Attributes();
+		Attributes attrib = Attributes.create();
 		
 		attrib.setAttributeValue(AttribValues.CHA, 15);
 		assertTrue(attrib.getBonus(AttribValues.CHA) == 1);
@@ -33,7 +33,7 @@ public class AttributesTest {
 
 	@Test
 	public void testGetAddDamage() {
-		Attributes attrib = new Attributes();
+		Attributes attrib = Attributes.create();
 		
 		for(int i = 14; i < 25; i++) {
 			attrib.setAttributeValue(AttribValues.STR, i);
@@ -47,7 +47,7 @@ public class AttributesTest {
 	
 	@Test
 	public void testObjectToJson() {
-		Attributes attrib = new Attributes();
+		Attributes attrib = Attributes.create();
 		Class<?> c  = AttribValues.class;
 		for(Field f : c.getDeclaredFields()) {
 			try {

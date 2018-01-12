@@ -1,13 +1,14 @@
-package org.arkanum.persistence.model;
+package org.arkanum.object.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @EqualsAndHashCode
-public class Character {
+public class GameCharacter {
 	
 	
 	@Getter @Setter private String name;
@@ -17,11 +18,21 @@ public class Character {
 	@Getter @Setter private Integer age;
 	
 	@Getter @Setter private Race race;
-	@Getter @Setter private Profession profession = new Profession();
-	private Attributes attributes = new Attributes();
+	@Getter @Setter private Profession profession;
+	@Getter @Setter private Attributes attributes; 
 	
 	
-	public Character() {}
+	private GameCharacter(@NonNull Attributes a, @NonNull Race r, @NonNull Profession p) 
+	{
+		attributes = a;
+		race = r;
+		profession = p;
+		
+	}
+	
+	public static GameCharacter create(@NonNull Attributes a, @NonNull Race r, @NonNull Profession p){
+	   return new GameCharacter(a,r,p);	
+	}
 	
 	public void setFame(Integer f) {
 		if (f > 100)  throw new IllegalArgumentException(String.format("max fame is 100. your fame is: %s", f));
@@ -29,23 +40,12 @@ public class Character {
 	}
 	
 	
-	
-	public Integer getAttribute(String attribute) {
-		return attributes.getAttributeValue(attribute);
-	}
-	
-	public void setAttribute(String attribute, Integer value) {
-		attributes.setAttributeValue(attribute, value);
-		
-	}
-	
-	
 	public Integer getMaxHits() {
 		Integer ret = 0;
-		Integer multi = level < 13 ? level : 12;
+		Integer multi = getLevel() < 13 ? getLevel() : 12;
 		ret = attributes.getAttributeValue(AttribValues.CON);
 		ret = ret + multi*attributes.getAddHitBonus();
-		switch(profession.getFighterType()) {
+		switch(getProfession().getFighterType()) {
 		case UNTRAINED:
 			ret = ret + multi * 2;
 			break;
@@ -55,11 +55,14 @@ public class Character {
 		case HIGHTRAINED:
 			ret = ret + multi * 6;
 		}
-		if(level >= 13) {
+		if(getLevel() >= 13) {
 			ret = ret + 1;
 		}
 		return ret;
 	}
+	
+	
+	
 	
 
 }

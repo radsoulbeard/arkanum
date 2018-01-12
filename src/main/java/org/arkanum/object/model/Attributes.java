@@ -1,4 +1,4 @@
-package org.arkanum.persistence.model;
+package org.arkanum.object.model;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -14,8 +14,12 @@ public class Attributes {
 	private Map<String, Integer> values = new HashMap<String, Integer>();
 	
 	
-    public 	Attributes() {
+    private  Attributes() {
     	initialize();
+    }
+    
+    public static Attributes create() {
+    	return new Attributes();
     }
 	
 	
