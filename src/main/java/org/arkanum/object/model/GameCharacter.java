@@ -57,7 +57,7 @@ public class GameCharacter {
 			ret = ret + multi * 6;
 		}
 		if(getLevel() >= 13) {
-			ret = ret + 1;
+			ret = ret + (getLevel() - 12 );
 		}
 		return ret;
 	}
