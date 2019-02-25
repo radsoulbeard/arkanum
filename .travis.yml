@@ -1,16 +1,18 @@
+branches:
+  only:
+  - master
 language: java
 jdk:
   - oraclejdk8
 
-build:
-  -provider: script
+jobs:
+  include:
+  -stage: Build
+  name: Maven Build
   script: mvn clean package
-  on:
-      branch: master
       
- sonar:
-   -provider: script
+   -stage: Analyze
+    name: Sonar 
    script: mvn sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
-   on:
-     branch: master
+   
     
