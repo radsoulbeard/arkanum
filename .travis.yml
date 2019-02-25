@@ -7,12 +7,12 @@ jdk:
 
 jobs:
   include:
-  -stage: Build
-  name: Maven Build
-  script: mvn clean package
+    -stage: Build
+     name: Maven Build
+     script: mvn clean package
       
-   -stage: Analyze
-    name: Sonar 
-   script: mvn sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
+     -stage: Analyze
+      name: Sonar 
+      script: mvn sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
    
     
