@@ -5,3 +5,5 @@ jdk:
 build:
   -provider: script
   script: mvn clean package
+  on:
+      branch: master
