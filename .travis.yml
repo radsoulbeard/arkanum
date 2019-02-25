@@ -10,11 +10,7 @@ build:
       
  sonar:
    -provider: script
-    script: mvn sonar:sonar \
-            -Dsonar.projectKey=radsoulbeard_arkanum \
-            -Dsonar.organization=radsoulbeard-github \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
+   script: mvn sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
    on:
      branch: master
     
