@@ -9,6 +9,8 @@ import org.arkanum.object.model.Race;
 import org.arkanum.object.model.Skills;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 import com.google.gson.Gson;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +30,8 @@ public class GameCharacterTest {
 		gc.setLevel(2);
 		Integer maxHits = gc.getMaxHits();
 	    System.out.println("MaxHits: " + maxHits);
-	    Gson gson = new Gson();
+		assertTrue(24 == maxHits);
+		Gson gson = new Gson();
 	    String json = gson.toJson(gc);
 	    System.out.println(json);
 	    
