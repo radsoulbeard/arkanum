@@ -9,8 +9,8 @@ jobs:
   include:
     - stage: "Build"
       name: "Build"
-      script: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=false  
+      script: mvn clean  install
     - name: "Analyze" 
-      script: mvn sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
+      script: mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd
    
     
