@@ -58,7 +58,6 @@ public class GameCharacter {
 			break;
 		default:
 			throw new IllegalArgumentException(String.format("undefinded fighter type"));
-			break;
 		}
 		if(getLevel() >= 13) {
 			ret = ret + (getLevel() - 12 );
