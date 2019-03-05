@@ -55,6 +55,9 @@ public class GameCharacter {
 			break;
 		case HIGHTRAINED:
 			ret = ret + multi * 6;
+			break;
+		default:
+			throw new IllegalArgumentException(String.format("undefinded fighter type"));
 		}
 		if(getLevel() >= 13) {
 			ret = ret + (getLevel() - 12 );
