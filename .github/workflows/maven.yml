@@ -15,5 +15,3 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn clean install --file pom.xml
-    - name: Scan Sonar
-      run: mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -Dsonar.projectKey=radsoulbeard_arkanum -Dsonar.organization=radsoulbeard-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=7bf6586cd151710318c8151346ebdc99a55e0fbd 
